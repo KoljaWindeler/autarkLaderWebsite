@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich – Kolja Windeler | Dipl.-Ing. & Senior Projektleiter</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="h-full flex flex-col min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <div class="p-2 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 rounded-xl shadow-lg shadow-amber-500/20">
+                    <i data-lucide="sun" class="w-6 h-6 stroke-[2.5]"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-white tracking-wide">autarkLader</h1>
+                    <p class="text-xs text-slate-400">Prototyp & Portfolio</p>
+                </div>
+            </a>
+            <div class="flex items-center gap-3">
+                <a href="CVF_Kolja_Windeler.vcf" download class="text-xs bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+                    <i data-lucide="vcard" class="w-4 h-4"></i> vCard
+                </a>
+                <a href="index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2 rounded-xl transition flex items-center gap-1.5">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> autarkLader
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+
+        <!-- HERO & PROFILE OVERVIEW SECTION -->
+        <section class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                
+                <!-- Profile Image (1:1 Aspect Ratio) -->
+                <div class="relative shrink-0">
+                    <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl bg-slate-800 border-2 border-slate-700/80 shadow-2xl overflow-hidden aspect-square">
+                        <img src="img/me_p.jpeg" alt="Kolja Windeler" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 p-2.5 bg-amber-500 text-slate-950 rounded-xl shadow-lg border border-amber-400 font-bold text-xs flex items-center gap-1">
+                        <i data-lucide="zap" class="w-3.5 h-3.5"></i> Dipl.-Ing. Elektrotechnik &<br> Senior Projektleiter
+                    </div>
+                </div>
+
+                <!-- Intro Header Text -->
+                <div class="space-y-4 text-center lg:text-left flex-1">
+                    <div>
+                        
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Kolja Windeler</h1>
+                        <p class="text-amber-400 font-medium text-base sm:text-lg mt-1">
+                            Entwicklung von technischen Konzepten, Systemen, Produkten & Organisationen
+                        </p>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+                        Mehr als 14 Jahre operative Erfahrung in der Entwicklung und Steuerung komplexer Projekte in internationalen Konzern- und Mittelstandsstrukturen – von der ersten Machbarkeitsstudie bis zur Serienfertigung. Ich verbinde fundiertes technisches Fachwissen in Hardware, Embedded Software und dezentraler Energieinfrastruktur mit moderner Organisationsführung.
+                    </p>
+
+                    <!-- Contact Details Grid mit Visitenkarte -->
+                    <div class="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs text-slate-300">
+                        <a href="mailto:Kolja.Windeler@gmail.com" class="flex items-center justify-center lg:justify-start gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 hover:text-amber-400 transition">
+                            <i data-lucide="mail" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                            <span class="truncate">Kolja.Windeler@gmail.com</span>
+                        </a>
+                        <a href="tel:+4915114463852" class="flex items-center justify-center lg:justify-start gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-slate-800 hover:border-slate-700 hover:text-amber-400 transition">
+                            <i data-lucide="phone" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                            <span>+49 151 14463852</span>
+                        </a>
+                        <div class="flex items-center justify-center lg:justify-start gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-400">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                            <span>29313 Hambühren</span>
+                        </div>
+                        <a href="https://linkedin.com/in/kolja-windeler" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center lg:justify-start gap-2 p-2.5 rounded-xl bg-blue-600/10 border border-blue-500/30 text-blue-400 hover:bg-blue-600/20 transition">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-blue-400 shrink-0"></i>
+                            <span>LinkedIn Profil</span>
+                        </a>
+                        <a href="CVF_Kolja_Windeler.vcf" download class="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/40 text-amber-400 hover:bg-amber-500/20 font-semibold transition shadow-md">
+                            <i data-lucide="download" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                            <span>vCard (.vcf)</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KERNEXPERTISE GRID -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="p-3 bg-amber-500/10 text-amber-400 rounded-xl w-fit border border-amber-500/20">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-bold text-white">Technische Konzeptentwicklung</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Übersetzung komplexer Anforderungen in tragfähige Systemarchitekturen – von drahtgebundenen Kommunikationssystemen über vernetzte Systeme zur Video- & Datenverarbeitung bis hin zu autarkieoptimierter Energieinfrastruktur.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl w-fit border border-blue-500/20">
+                    <i data-lucide="layers" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-bold text-white">System- & Produktentwicklung</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Ganzheitliche Steuerung komplexer Produktentwicklungen mit fundiertem Verständnis für Schaltungstechnik, Embedded-Logik und Kommunikationsprotokolle – von der Idee bis zur fertigungsoptimierten Serienproduktion.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl w-fit border border-emerald-500/20">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-base font-bold text-white">Organisationsentwicklung</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Aufbau und Skalierung performanter, interdisziplinärer Teams (5 bis 25 Entwickler) in internationaler Zusammensetzung. Flexibel in klassischen, agilen oder hybriden Setups.
+                </p>
+            </div>
+        </section>
+
+        <!-- UNTERER BEREICH: ZWEI BOXEN SEITE AN SEITE -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            
+            <!-- BOX 1: PROFESSIONELLER LEBENSLAUF -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-xl border border-blue-500/20">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">Berufserfahrung</h2>
+                            <p class="text-xs text-slate-400">Sennheiser & Baker Hughes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 text-xs text-slate-300">
+                    <div class="relative pl-5 border-l-2 border-blue-500/40 space-y-1.5">
+                        <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-blue-500"></div>
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                            <span class="font-bold text-white text-sm">Programm-Manager – Konferenz-Videobars / Campus-Audiostreaming</span>
+                            <span class="text-[11px] text-amber-400 font-medium">06/2022 – 07/2026</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">Sennheiser – Wedemark & Hamburg</p>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Aufbau und disziplinarische Führung eines internationalen standortübergreifenden Teams von 25 Entwicklern</li>
+                            <li>Planung und Kontrolle der Kostenstellen bzgl. Projektbudget, Personalgehältern und Investitionen</li>
+                            <li>Steuerung komplexer Projekte mittels klassischem, agilem und hybridem Projektmanagement</li>
+                            <li>Stakeholdergerechtes Projekt-Reporting, aktives Risikotracking und Risikomanagement</li>
+                            <li>Steuerung externer Subunternehmer in China, den USA, Finnland und Taiwan</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative pl-5 border-l-2 border-slate-700 space-y-1.5">
+                        <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                            <span class="font-bold text-white text-sm">Senior Projekt-Manager – Drahtlose Mikrofonstrecken</span>
+                            <span class="text-[11px] text-slate-400">09/2021 – 10/2022</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">Sennheiser – Wedemark</p>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Fachliche Führung eines 9-köpfigen Entwicklungsteams beim Stereo-Richtrohrmikrofon MKH 8000</li>
+                            <li>Überführung des Kondensatormikrofons von Konzeptphase bis Serienreife & Markteinführung</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative pl-5 border-l-2 border-slate-700 space-y-1.5">
+                        <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                            <span class="font-bold text-white text-sm">Projektleiter – Datenbus-Gestänge Tiefenbohrung</span>
+                            <span class="text-[11px] text-slate-400">05/2019 – 08/2021</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">Baker Hughes – Celle</p>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300 pt-1">
+                            <li>Führung von 8 Ingenieuren bei der Entwicklung batteriebetriebener Signalkoppler</li>
+                            <li>Schaltungsdesign, Layout, Prototypenbau bis Qualifikationstests</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative pl-5 border-l-2 border-slate-700 space-y-1.5">
+                        <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                            <span class="font-bold text-white text-sm">Teilprojektleiter – Universeller Controller Tiefenbohrung</span>
+                            <span class="text-[11px] text-slate-400">05/2016 – 04/2019</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">Baker Hughes – Celle</p>
+                    </div>
+
+                    <div class="relative pl-5 border-l-2 border-slate-700 space-y-1.5">
+                        <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                            <span class="font-bold text-white text-sm">Field Engineer – Feldtest Navigationstechnik</span>
+                            <span class="text-[11px] text-slate-400">01/2014 – 04/2016</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">Baker Hughes – Houston (USA)</p>
+                    </div>
+
+                    <div class="relative pl-5 border-l-2 border-slate-700 space-y-1.5">
+                        <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-slate-700"></div>
+                        <div class="flex flex-wrap items-center justify-between gap-1">
+                            <span class="font-bold text-white text-sm">Elektronik Entwickler – Navigationstechnik</span>
+                            <span class="text-[11px] text-slate-400">05/2012 – 04/2019</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">Baker Hughes – Celle</p>
+                    </div>
+                </div>
+
+                <!-- QUALIFIKATION / STUDIUM -->
+                <div class="pt-6 border-t border-slate-800 space-y-3">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-amber-400"></i> Qualifikationen & Ausbildung
+                    </h3>
+                    <div class="space-y-2 text-xs">
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex justify-between items-center">
+                            <div>
+                                <div class="font-semibold text-white">Certified Senior Projektmanager (IPMA Level B)</div>
+                                <div class="text-slate-400">Reuter</div>
+                            </div>
+                            <span class="text-[11px] text-amber-400">09/2026 – 01/2027</span>
+                        </div>
+                        <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex justify-between items-center">
+                            <div>
+                                <div class="font-semibold text-white">Dipl.-Ing. Elektrotechnik</div>
+                                <div class="text-slate-400">Leibniz Universität Hannover</div>
+                            </div>
+                            <span class="text-[11px] text-slate-400">08/2006 – 04/2012</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOX 2: SOLAR- & SMART ENERGY ERFAHRUNG -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                
+                <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 bg-amber-500/10 text-amber-400 rounded-xl border border-amber-500/20">
+                            <i data-lucide="sun" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">Solar & Smart Energy</h2>
+                            <p class="text-xs text-slate-400">Projekte, Großspeicher & Dezentrale Systeme</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 text-xs text-slate-300">
+
+                    <!-- NEUES PROJEKT: 1. Graustrom-Speicher CUN -->
+                    <div class="p-5 bg-gradient-to-br from-slate-950/90 to-amber-950/20 rounded-2xl border border-amber-500/30 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 font-bold text-[10px] uppercase border border-amber-500/30">Aktuelles Projekt</span>
+                            <span class="text-slate-400 font-mono text-[11px]">08/2026 – heute (offen)</span>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Realisierung 1. Graustrom-Speicher im Netz der CUN</h3>
+                            <p class="text-amber-400 font-medium">Freelancer / Projektleitung</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <div class="p-2 bg-slate-900/90 rounded-lg border border-slate-800 text-center">
+                                <span class="block text-[10px] text-slate-400 uppercase">Ein-/Ausspeisung</span>
+                                <span class="text-sm font-bold text-white">2.500 kW</span>
+                            </div>
+                            <div class="p-2 bg-slate-900/90 rounded-lg border border-slate-800 text-center">
+                                <span class="block text-[10px] text-slate-400 uppercase">Speicherkapazität</span>
+                                <span class="text-sm font-bold text-amber-400">5.182 kWh</span>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 leading-relaxed pt-1">
+                            Realisierung des ersten Graustrom-Speichers im Stromnetz der CUN (Celle-Uelzen Netz): Von der Idee über die Komponentenauswahl bis zur technischen Abstimmung mit dem Netzbetreiber.
+                        </p>
+                    </div>
+
+                    <!-- GGSolar Experience -->
+                    <div class="p-5 bg-slate-950/60 rounded-2xl border border-slate-800/80 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-white text-sm">Technischer Leiter | Freelancer</span>
+                            <span class="text-slate-400">11/2022 – 05/2026</span>
+                        </div>
+                        <p class="text-slate-400 font-medium">GGSolar – Hannover</p>
+                        
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+                            <li>Realisierung von <strong>46 Kundenprojekten</strong> im Bereich PV, Ersatzstrom-Speicher, EMS & PV-Überschussladen</li>
+                            <li>Fachliche Koordination und Qualitätskontrolle aller Schnittstellen (Dachdecker & Elektriker)</li>
+                            <li>Projektierung & Inbetriebnahme einer <strong>99 kWp Dach-PV-Anlage mit 96 kWh Batteriespeicher</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- autarkLader Private Showcase -->
+                    <div class="p-5 bg-slate-950/60 rounded-2xl border border-slate-800/80 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-white text-sm">autarkLader (Offgrid PV-Station)</span>
+                            <span class="text-amber-400 font-mono text-[11px]">Eigenentwicklung</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            Autarkes Ladesystem für netzferne Standorte: Victron Hardware, 10-kWh-LiFePO4-Speicher, Python-EMS (Venus OS) & Mikrocontroller-Firmware in C++.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SEKTION: EIGENSTÄNDIGE ENERGIEWENDE IM EIGENEN UMFELD -->
+<!-- SEKTION: EIGENSTÄNDIGE ENERGIEWENDE IM EIGENEN UMFELD -->
+<div class="bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/30 border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 mt-8">
+    
+    <!-- HEADER -->
+    <div class="flex items-start gap-4 border-b border-slate-800 pb-5">
+        <div class="p-3 bg-amber-500/10 text-amber-400 rounded-2xl border border-amber-500/20 shrink-0">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <div class="space-y-1">
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 font-bold text-[10px] uppercase tracking-wider border border-amber-500/30">
+                Eigeninitiative & Execution
+            </div>
+            <h3 class="text-xl font-bold text-white">Energiewende im eigenen Umfeld – Hands-on umgesetzt</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Vom ersten Konzept über die physische Installation bis zur eigenen Software-Steuerung.
+            </p>
+        </div>
+    </div>
+
+    <!-- MAIN STATEMENT -->
+    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        Ich rede nicht nur über die Energiewende – ich packe sie selbst an. Aus echter Begeisterung und Überzeugung habe ich mein eigenes Umfeld eigenständig und hochmotiviert auf 100 % erneuerbare Energien umgerüstet. Dabei habe ich <strong>jede Solarzelle selbst aufs Dach getragen</strong> und <strong>jede Zeile Code des Energiemanagementsystems selbst geschrieben</strong>.
+    </p>
+
+    <!-- METRICS GRID -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 pt-2">
+        
+        <!-- Metric 1: PV-Leistung -->
+        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 text-center space-y-1">
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">PV-Leistung</span>
+            <span class="text-lg font-extrabold text-white">42 kWp</span>
+            <span class="block text-[10px] text-amber-400">Eigenmontage</span>
+        </div>
+
+        <!-- Metric 2: Speicher -->
+        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 text-center space-y-1">
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Batteriespeicher</span>
+            <span class="text-lg font-extrabold text-amber-400">86 kWh</span>
+            <span class="block text-[10px] text-slate-400">BESS Kapazität</span>
+        </div>
+
+        <!-- Metric 3: Wärmepumpe -->
+        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 text-center space-y-1">
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Heizung</span>
+            <span class="text-lg font-extrabold text-white">Wärmepumpe</span>
+            <span class="block text-[10px] text-emerald-400">Vollintegriert</span>
+        </div>
+
+        <!-- Metric 4: E-Mobilität -->
+        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 text-center space-y-1">
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Fuhrpark</span>
+            <span class="text-lg font-extrabold text-white">2x EVs</span>
+            <span class="block text-[10px] text-blue-400">Sektorenkopplung</span>
+        </div>
+
+        <!-- Metric 5: Eigenes EMS -->
+        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 text-center space-y-1 col-span-2 md:col-span-1">
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Steuerung</span>
+            <span class="text-lg font-extrabold text-emerald-400">Eigenes EMS</span>
+            <span class="block text-[10px] text-slate-400">Self-coded</span>
+        </div>
+
+    </div>
+
+    <!-- PROMINENTER BUSINESS CASE CALLOUT (SICHTBARER LINK) -->
+    <div class="p-5 bg-gradient-to-r from-slate-950 via-slate-950 to-amber-950/40 rounded-2xl border border-amber-500/40 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg">
+        <div class="flex items-center gap-3.5">
+            <div class="p-3 bg-amber-500/20 text-amber-400 rounded-xl border border-amber-500/30 shrink-0">
+                <i data-lucide="trending-up" class="w-6 h-6"></i>
+            </div>
+            <div class="space-y-0.5 text-center md:text-left">
+                <h4 class="text-sm font-bold text-white flex items-center justify-center md:justify-start gap-2">
+                    Wirtschaftlicher Business Case
+                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ROI ~2,5 Jahre</span>
+                </h4>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    Neben der Rettung des Planeten rechnet sich das Ganze auch finanziell richtig: Schau dir die Zahlen & Details meiner privaten Energiewende an.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Button / CTA -->
+        <a href="energiewende.html" class="shrink-0 w-full md:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 px-5 py-2.5 rounded-xl shadow-lg shadow-amber-500/10 transition transform active:scale-95">
+            <span>Business Case ansehen</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+    </div>
+
+</div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <p>&copy; 2026 Dipl.-Ing. Kolja Windeler &bull; Portfolio & Profil</p>
+            <div class="flex items-center gap-4">
+                <a href="CVF_Kolja_Windeler.vcf" download class="text-amber-400 hover:underline flex items-center gap-1">
+                    <i data-lucide="vcard" class="w-3.5 h-3.5"></i> Visitenkarte (.vcf)
+                </a>
+                <span>&bull;</span>
+                <a href="index.html" class="hover:text-slate-300 transition">autarkLader Rechner</a>
+                <span>&bull;</span>
+                <a href="impressum.html" class="hover:text-slate-300 transition">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+// Initialisierung beim Laden der Seite
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            updateBatteryButtonsState(); // Setzt zu Beginn direkt den 5 kWh Akku fest & sperrt die anderen Buttons
+            updateDashboard();
+        });

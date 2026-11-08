@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum – autarkLader</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="h-full flex flex-col min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-90 transition">
+                <div class="p-2 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 rounded-xl shadow-lg shadow-amber-500/20">
+                    <i data-lucide="sun" class="w-6 h-6 stroke-[2.5]"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-white tracking-wide">autarkLader</h1>
+                    <p class="text-xs text-slate-400">Prototyp & Machbarkeitsstudie</p>
+                </div>
+            </a>
+            <div>
+                <a href="index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2 rounded-xl transition flex items-center gap-1.5">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Zurück zur Hauptseite
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- INHALT IMPRESSUM -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="scale" class="w-7 h-7 text-amber-400"></i>
+                    Impressum
+                </h2>
+                <p class="text-xs text-slate-400 mt-1">Angaben gemäß § 5 TMG / § 18 MStV für diese private Projekt-Website</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm leading-relaxed text-slate-300">
+                <!-- Angaben zum Betreiber -->
+                <div class="space-y-4 bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80">
+                    <h3 class="font-semibold text-white text-base border-b border-slate-800 pb-2">Diensteanbieter &amp; Verantwortlicher</h3>
+                    <p>
+                        <strong>Kolja Windeler</strong><br>
+                        Kaliweg 5<br>
+                        29313 Hambühren<br>
+                        Deutschland
+                    </p>
+                    <div class="pt-3 border-t border-slate-800/80 space-y-2 text-xs">
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
+                            <a href="mailto:Kolja.Windeler@gmail.com" class="hover:text-amber-400 transition">Kolja.Windeler@gmail.com</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>
+                            <a href="tel:+4915114463852" class="hover:text-amber-400 transition">+49 151 14463852</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hinweis zur privaten Nutzung & Haftung -->
+                <div class="space-y-4 bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80 text-xs text-slate-400 leading-relaxed">
+                    <div>
+                        <h3 class="font-semibold text-white text-sm mb-1">Hinweis zum Projektstatus</h3>
+                        <p>
+                            Diese Website dient ausschließlich der Präsentation des privaten Forschungsprojekts <strong>„autarkLader“</strong> sowie als Portfolio für technische Machbarkeitsstudien. Es werden keine kommerziellen Dienstleistungen oder Produkte angeboten.
+                        </p>
+                    </div>
+                    <div class="pt-2 border-t border-slate-800/80">
+                        <h3 class="font-semibold text-white text-sm mb-1">Haftung für Inhalte &amp; Links</h3>
+                        <p>
+                            Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <p>autarkLader Prototyp-Präsentation &bull; Entwickelt mit Leidenschaft für die Energiewende.</p>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="hover:text-slate-300 transition">Startseite</a>
+                <span>&bull;</span>
+                <a href="impressum.html" class="text-amber-400 font-semibold">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

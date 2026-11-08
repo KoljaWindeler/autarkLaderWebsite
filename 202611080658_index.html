@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>autarkLader – Autarke E-Auto-Ladestation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        .btn-option-active {
+            background-color: #3b82f6 !important;
+            color: #ffffff !important;
+            border-color: #60a5fa !important;
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+        }
+        @media (max-width: 1023px) {
+            .mobile-sticky-kpi {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 40;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(51, 65, 85, 0.8);
+                padding: 12px 16px;
+                box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5);
+            }
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-blue-500 selection:text-white pb-28 lg:pb-0">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 rounded-xl shadow-lg shadow-amber-500/20">
+                    <i data-lucide="sun" class="w-6 h-6 stroke-[2.5]"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-white tracking-wide">autarkLader</h1>
+                    <p class="text-xs text-slate-400">Prototyp & Machbarkeitsstudie</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xs px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-medium hidden sm:inline-block">
+                    Status: Funktionierender Prototyp (Kein Serienprodukt)
+                </span>
+                <a href="#kontakt" class="text-xs bg-blue-600 hover:bg-blue-500 text-white font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-blue-600/20">
+                    Interesse bekunden
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+        
+        <!-- SEKTION 1: DIE STORY / HERO -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-slate-900 to-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Energiewende zum Selbermachen
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                    E-Auto gekauft. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">Garagenhof ohne Strom?</span>
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Die Schwiegereltern bekommen ein E-Auto – aber der Garagenhof hat keinen Stromanschluss und weit und breit keine Ladesäule. Ärgerlich? Genau das war der Startschuss für den <strong>autarkLader</strong>: Eine autarke Ladelösung aus Solarmodulen, Offgrid-Wechselrichter und Batteriespeicher. Aufgestellt und betriebsbereit dort, wo Netztstrom fehlt.
+                </p>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-0">
+                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                        <span class="text-amber-400 font-bold block text-lg">6 Module</span>
+                        <span class="text-[11px] text-slate-400">Solar auf dem Dach</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60">
+                        <span class="text-emerald-400 font-bold block text-lg">10 kWh</span>
+                        <span class="text-[11px] text-slate-400">LiFePO4 Pufferakku</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 col-span-2 sm:col-span-1">
+                        <span class="text-blue-400 font-bold block text-lg">~7.500 km</span>
+                        <span class="text-[11px] text-slate-400">Jahres-Solarleistung</span>
+                    </div>
+                    <!--<div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 col-span-2 sm:col-span-1">
+                        <span class="text-emerald-400 font-bold block text-lg">1.016 eur</span>
+                        <span class="text-[11px] text-slate-400">Jährl. Ersparnis</span>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 col-span-2 sm:col-span-1">
+                        <span class="text-emerald-400 font-bold block text-lg">65.5%</span>
+                        <span class="text-[11px] text-slate-400">Laden ohne Ladesäule</span>
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80 space-y-4">
+                <h3 class="font-bold text-white text-sm flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-amber-400"></i> Hard- & Software Stack
+                </h3>
+                <ul class="space-y-2.5 text-xs text-slate-300">
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span><strong>Victron EasySolar & MPPT</strong> (Energie-Management)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span><strong>Venus OS (Python)</strong> zur Realisierung der Ladelogik</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span><strong>C++ Mikrocontroller</strong> für LED-Leuchtstreifen</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span><strong>Einphasige Wallbox</strong></span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEKTION 2: DIE EVOLUTION (Bildergalerie) -->
+        <section class="space-y-6">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h2 class="text-2xl font-bold text-white">Der Weg zum Prototyp</h2>
+                <p class="text-xs text-slate-400">Vom ersten Konzept am virtuellen Reißbrett über den funktionierenden Test-Aufbau bis hin zur geplanten Verkleidung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bild 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+                    <div class="h-60 bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <img src="concept.jpg" alt="Konzeptskizze" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-2">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-blue-400 tracking-wider">Schritt 1</span>
+                            <h3 class="font-bold text-white text-base">Die Konzeptskizze</h3>
+                        </div>
+                        <p class="text-xs text-slate-400">Planung des Carport-Dachs mit integrierten Solarmodulen und kompakter Technik-Einheit vor Ort.</p>
+                    </div>
+                </div>
+
+                <!-- Bild 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+                    <div class="h-60 bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <img src="real.jpg" alt="Echter Prototyp" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-2">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-wider">Schritt 2 (Aktueller Stand)</span>
+                            <h3 class="font-bold text-white text-base">Der Funktions-Prototyp</h3>
+                        </div>
+                        <p class="text-xs text-slate-400">Victron-Wechselrichter, LiFePO4 Speicher und Wallbox auf geschweisstem Gestell aufgebaut – lädt das Fahrzeug erfolgreich im Testbetrieb.</p>
+                    </div>
+                </div>
+
+                <!-- Bild 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+                    <div class="h-60 bg-slate-800 flex items-center justify-center overflow-hidden">
+                        <img src="outlook.png" alt="Verkleidungs-Idee" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-2">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">Schritt 3 (Ausblick)</span>
+                            <h3 class="font-bold text-white text-base">Die edle Verkleidung</h3>
+                        </div>
+                        <p class="text-xs text-slate-400">Entwurf für die Serienoptik mit Holzlamellen, integrierter LED-Beleuchtung und sauberem Finish für den Garagenhof.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKTION 3: DER RECHNER (Eingebettet) -->
+        <section class="space-y-6 pt-4 border-t border-slate-800">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h2 class="text-2xl font-bold text-white">Interaktiver Ertrags- & Autarkie-Rechner</h2>
+                <p class="text-xs text-slate-400">Teste selbst, wie viel Solar-Reichweite und Autarkie mit deiner Konfiguration möglich sind.</p>
+            </div>
+
+            <!-- TOP KPI CARDS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-slate-400 mb-2">
+                        <span class="text-[11px] font-bold uppercase tracking-wider">Autarkiegrad</span>
+                        <i data-lucide="pie-chart" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <span id="kpi-autarky" class="text-3xl font-black text-emerald-400">0.0%</span>
+                    <div class="w-full bg-slate-800 h-2 rounded-full mt-3 overflow-hidden border border-slate-700/50">
+                        <div id="autarky-bar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-slate-400 mb-2">
+                        <span class="text-[11px] font-bold uppercase tracking-wider">Jährl. Ersparnis</span>
+                        <i data-lucide="piggy-bank" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <span id="kpi-savings" class="text-3xl font-extrabold text-emerald-400">0 €</span>
+                    <p id="kpi-savings-sub" class="text-[11px] text-slate-400 mt-2">ggü. Ladesäule / Netz</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-slate-400 mb-2">
+                        <span class="text-[11px] font-bold uppercase tracking-wider">Solar-Reichweite</span>
+                        <i data-lucide="navigation" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <div class="flex items-baseline space-x-1.5">
+                        <span id="kpi-solar-km" class="text-3xl font-extrabold text-white">0</span>
+                        <span class="text-xs font-semibold text-blue-400">km / Jahr</span>
+                    </div>
+                    <p id="kpi-solar-km-sub" class="text-[11px] text-slate-400 mt-2">von 0 km Gesamtleistung</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-slate-400 mb-2">
+                        <span class="text-[11px] font-bold uppercase tracking-wider">PV Ertrag (Brutto)</span>
+                        <i data-lucide="sun-medium" class="w-5 h-5 text-amber-400"></i>
+                    </div>
+                    <div class="flex items-baseline space-x-1.5">
+                        <span id="kpi-solar-year" class="text-3xl font-extrabold text-white">0</span>
+                        <span class="text-xs font-semibold text-amber-400">kWh</span>
+                    </div>
+                    <p id="kpi-kwp-sub" class="text-[11px] text-slate-400 mt-2">0.00 kWp Anlagengröße</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between text-slate-400 mb-2">
+                        <span class="text-[11px] font-bold uppercase tracking-wider">Ladesäulen Bedarf</span>
+                        <i data-lucide="utility-pole" class="w-5 h-5 text-rose-400"></i>
+                    </div>
+                    <div class="flex items-baseline space-x-1.5">
+                        <span id="kpi-missing-year" class="text-3xl font-extrabold text-white">0</span>
+                        <span class="text-xs font-semibold text-rose-400">kWh</span>
+                    </div>
+                    <p id="kpi-cost-remain-year" class="text-[11px] text-slate-400 mt-2">Restkosten: 0 €</p>
+                </div>
+            </div>
+
+            <!-- CONTROLS & CHARTS -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- PARAMETER -->
+                <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-6">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                        <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                            <i data-lucide="sliders" class="w-5 h-5 text-amber-400"></i> Parameter
+                        </h3>
+                        <button id="reset-btn" class="text-xs text-slate-400 hover:text-white transition flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700">
+                            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset
+                        </button>
+                    </div>
+
+                    <!-- Module -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="text-xs font-semibold uppercase text-slate-300 flex items-center gap-1.5">
+                                Anzahl Solarzellen (Module)
+                                <span class="group relative inline-flex items-center cursor-pointer">
+                                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400 hover:text-amber-400 transition-colors"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-72 p-2.5 bg-slate-900 text-slate-200 text-[11px] font-normal normal-case tracking-normal rounded-xl shadow-xl border border-slate-700 z-50 pointer-events-none leading-relaxed">
+                                        6 Module passen auf eine normale Garage, 9 bei Nebendach, 12 bei Doppelgarage. Mehr Zellen erzeugen mehr Strom und laden mehr kWh, aber bei zu geringer Fahrleistung geht Energie verloren – und mehr Module kosten mehr Geld.
+                                    </span>
+                                </span>
+                            </label>
+                            <span id="modules-kwp-badge" class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-md border border-amber-400/20">2,70 kWp</span>
+                        </div>
+                        <div class="grid grid-cols-5 gap-2" id="modules-btn-group">
+                            <button type="button" data-val="4" class="btn-module border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">4</button>
+                            <button type="button" data-val="6" class="btn-module btn-option-active border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">6</button>
+                            <button type="button" data-val="8" class="btn-module border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">8</button>
+                            <button type="button" data-val="10" class="btn-module border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">10</button>
+                            <button type="button" data-val="12" class="btn-module border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">12</button>
+                        </div>
+                    </div>
+
+                    <!-- Toggle -->
+                    <div class="p-4 bg-slate-800/60 rounded-xl border border-slate-700 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-white">Tagsüber viele Stunden unterwegs</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="away-toggle" class="sr-only peer">
+                                <div class="w-11 h-6 bg-slate-700 rounded-full peer peer-checked:after:translate-x-full after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                        <p id="away-info-text" class="text-[11px] text-slate-400">Direktladung tagsüber aktiv: 5 kWh Pufferakku ist fest eingestellt.</p>
+                    </div>
+
+                    <!-- Batterie -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="text-xs font-semibold uppercase text-slate-300 flex items-center gap-1.5">
+                                Batteriegröße (Pufferakku)
+                                <span class="group relative inline-flex items-center cursor-pointer">
+                                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400 hover:text-blue-400 transition-colors"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2.5 bg-slate-900 text-slate-200 text-[11px] font-normal normal-case tracking-normal rounded-xl shadow-xl border border-slate-700 z-50 pointer-events-none leading-relaxed">
+                                        Aus technischer Sicht geht es nicht ohne Speicher. 10 kWh sind ein guter Allrounder, 5 kWh reichen, wenn man viel zuhause ist. Über 10 kWh macht nur Sinn, wenn man z. B. nur jeden 2. Tag laden will. Grösserer Akku = mehr Kosten.
+                                    </span>
+                                </span>
+                            </label>
+                            <span id="battery-badge" class="text-xs font-bold text-blue-400 bg-blue-400/10 px-2.5 py-0.5 rounded-md border border-blue-400/20">5 kWh</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2" id="battery-btn-group">
+                            <div class="relative">
+                                <button type="button" data-val="5" class="w-full btn-battery btn-option-active border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">5 kWh</button>
+                            </div>
+                            <div class="relative battery-wrapper hidden" data-val="10">
+                                <button type="button" data-val="10" class="w-full btn-battery border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">10 kWh</button>
+                            </div>
+                            <div class="relative battery-wrapper hidden" data-val="17">
+                                <button type="button" data-val="17" class="w-full btn-battery border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">17 kWh</button>
+                            </div>
+                            <div class="relative battery-wrapper hidden" data-val="30">
+                                <button type="button" data-val="30" class="w-full btn-battery border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded-xl text-sm font-semibold transition">30 kWh</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider Fahrleistung -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-semibold uppercase text-slate-300 flex items-center gap-1.5">
+                                Jährliche Fahrleistung
+                                <span class="group relative inline-flex items-center cursor-pointer">
+                                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400 hover:text-indigo-400 transition-colors"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2.5 bg-slate-900 text-slate-200 text-[11px] font-normal normal-case tracking-normal rounded-xl shadow-xl border border-slate-700 z-50 pointer-events-none leading-relaxed">
+                                        Es geht in erster Linie um die km im Jahr, die man im Umkreis von zuhause fährt. Wenn man z. B. 14.000 km im Jahr fährt, aber 2x 2.000 km Urlaub dabei sind, ist es sinnvoll, hier 10.000 km zu wählen.
+                                    </span>
+                                </span>
+                            </span>
+                            <span id="km-val" class="font-bold text-indigo-400">15.000 km</span>
+                        </div>
+                        <input type="range" id="km-slider" min="1000" max="20000" value="15000" step="500" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500">
+                    </div>
+
+                    <!-- Slider Verbrauch -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-semibold uppercase text-slate-300 flex items-center gap-1.5">
+                                Energieverbrauch
+                                <span class="group relative inline-flex items-center cursor-pointer">
+                                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400 hover:text-emerald-400 transition-colors"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2.5 bg-slate-900 text-slate-200 text-[11px] font-normal normal-case tracking-normal rounded-xl shadow-xl border border-slate-700 z-50 pointer-events-none leading-relaxed">
+                                        Durchschnittlicher Verbrauch deines Autos.
+                                    </span>
+                                </span>
+                            </span>
+                            <span id="consumption-val" class="font-bold text-emerald-400">25,0 kWh/100km</span>
+                        </div>
+                        <input type="range" id="consumption-slider" min="14" max="30" value="25" step="0.5" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                    </div>
+
+                    <!-- Slider Effizienz -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between items-center">
+                            <label for="efficiency-slider" class="text-xs font-semibold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                                Ladeeffizienz
+                                <span class="group relative inline-flex items-center cursor-pointer">
+                                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400 hover:text-teal-400 transition-colors"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2.5 bg-slate-900 text-slate-200 text-[11px] font-normal normal-case tracking-normal rounded-xl shadow-xl border border-slate-700 z-50 pointer-events-none leading-relaxed">
+                                        Gesamtverlust auf dem Weg: Von der Batterie des autarkLaders über den Wechselrichter und das Ladekabel bis in die Autobatterie. 75 % ist ein realistischer Erfahrungswert.
+                                    </span>
+                                </span>
+                            </label>
+                            <span id="efficiency-val" class="text-xs font-bold text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-md border border-teal-400/20">75 %</span>
+                        </div>
+                        <input type="range" id="efficiency-slider" min="60" max="90" value="75" step="1" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500">
+                    </div>
+
+                    <!-- Slider Strompreis -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-semibold uppercase text-slate-300 flex items-center gap-1.5">
+                                Ladesäulenpreis
+                                <span class="group relative inline-flex items-center cursor-pointer">
+                                    <i data-lucide="info" class="w-3.5 h-3.5 text-slate-400 hover:text-amber-400 transition-colors"></i>
+                                    <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2.5 bg-slate-900 text-slate-200 text-[11px] font-normal normal-case tracking-normal rounded-xl shadow-xl border border-slate-700 z-50 pointer-events-none leading-relaxed">
+                                        Kosten, die du im Schnitt ohne den autarkLader bisher hattest (bzw. der durchschnittliche Preis, der beim Laden in der Nähe anfällt).
+                                    </span>
+                                </span>
+                            </span>
+                            <span id="price-val" class="font-bold text-amber-400">0,59 €/kWh</span>
+                        </div>
+                        <input type="range" id="price-slider" min="0.10" max="1.00" value="0.59" step="0.01" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500">
+                    </div>
+                </div>
+
+                <!-- CHART -->
+                <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg text-white mb-1">Monatliche Energiebilanz</h3>
+                    <p class="text-xs text-slate-400 mb-4">Eigenverbrauch vs. Ladesäule & Überschuss</p>
+                    <div class="h-96 w-full relative">
+                        <canvas id="balanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABELLE -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl overflow-x-auto">
+                <h3 class="font-bold text-lg text-white mb-1">Monatliche Detailtabelle</h3>
+                <p class="text-xs text-slate-400 mb-4">Übersicht aller Ertrags- und Autarkiewerte im Jahresverlauf</p>
+                <table class="w-full text-left text-xs sm:text-sm text-slate-300 font-mono">
+                    <thead class="bg-slate-800/80 text-slate-400 uppercase text-[10px] font-bold border-b border-slate-800">
+                        <tr>
+                            <th class="py-3 px-4">Monat</th>
+                            <th class="py-3 px-2 text-center">Tage</th>
+                            <th class="py-3 px-3 text-right">Solar Brutto</th>
+                            <th class="py-3 px-3 text-right">Netto Nutzbar</th>
+                            <th class="py-3 px-3 text-right">Bedarf</th>
+                            <th class="py-3 px-3 text-right text-emerald-400">Genutzt</th>
+                            <th class="py-3 px-3 text-right text-rose-400">Ladesäulen Bedarf</th>
+                            <th class="py-3 px-3 text-right text-amber-400">Überschuss</th>
+                            <th class="py-3 px-3 text-right">Autarkie</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monthly-table-body" class="divide-y divide-slate-800/60 text-xs"></tbody>
+                    <tfoot id="monthly-table-foot" class="bg-slate-800 font-semibold text-white border-t border-slate-700"></tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEKTION 4: KONTAKT / INTERESSE BEKUNDEN -->
+        <section id="kontakt" class="bg-gradient-to-r from-blue-950/40 via-slate-900 to-slate-900 border border-blue-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl text-center max-w-3xl mx-auto space-y-6">
+            <div class="inline-flex p-3 bg-blue-500/10 text-blue-400 rounded-2xl border border-blue-500/20">
+                <i data-lucide="mail" class="w-6 h-6"></i>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Interesse am autarkLader oder Feedback?</h2>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    Das Projekt ist aktuell ein funktionierender Prototyp. Wenn du das Konzept spannend findest, es vielleicht selbst an einem netzfreien Ort einsetzen möchtest oder als Unternehmen an der Weiterentwicklung (oder meiner Person) interessiert bist – melde dich gerne!
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-2">
+                <a href="mailto:Kolja.Windeler@gmail.com?subject=Interesse%20am%20autarkLader" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition shadow-lg shadow-blue-600/20">
+                    <i data-lucide="send" class="w-4 h-4"></i> E-Mail schreiben
+                </a>
+                <a href="https://www.linkedin.com/in/kolja-windeler/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-sm rounded-xl transition">
+                    <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> Auf LinkedIn vernetzen
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- MOBILE STICKY LIVE-LEISTE -->
+    <div class="mobile-sticky-kpi lg:hidden flex items-center justify-between gap-4">
+        <div>
+            <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Autarkie</span>
+            <span id="mobile-kpi-autarky" class="text-lg font-black text-emerald-400">0.0%</span>
+        </div>
+        <div>
+            <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Ersparnis</span>
+            <span id="mobile-kpi-savings" class="text-lg font-extrabold text-emerald-400">0 €</span>
+        </div>
+        <div>
+            <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Restkosten</span>
+            <span id="mobile-kpi-cost" class="text-lg font-extrabold text-rose-400">0 €</span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-8 mb-16 lg:mb-0 mt-16">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <div class="flex items-center gap-4">
+                <a href="impressum.html" class="hover:text-slate-300 transition">Impressum</a>
+            </div>
+            <p>autarkLader Prototyp-Präsentation &bull; Entwickelt mit Leidenschaft für die Energiewende.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGIC (RECHNER) -->
+    <script>
+        const MONTH_DATA = [
+            { name: "Januar", days: 31, specificYield: 22.2222 },
+            { name: "Februar", days: 28, specificYield: 40.7407 },
+            { name: "März", days: 31, specificYield: 77.7778 },
+            { name: "April", days: 30, specificYield: 114.8150 },
+            { name: "Mai", days: 31, specificYield: 133.3330 },
+            { name: "Juni", days: 30, specificYield: 133.3330 },
+            { name: "Juli", days: 31, specificYield: 125.9260 },
+            { name: "August", days: 31, specificYield: 114.8150 },
+            { name: "September", days: 30, specificYield: 85.1852 },
+            { name: "Oktober", days: 31, specificYield: 44.4444 },
+            { name: "November", days: 30, specificYield: 22.2222 },
+            { name: "Dezember", days: 31, specificYield: 14.8148 }
+        ];
+
+        const state = {
+            modules: 6, moduleWp: 450, batteryKwh: 5, isAwayTagsueber: false,
+            annualKm: 15000, consumption100km: 25.0, efficiencyPercent: 75, gridPrice: 0.59
+        };
+
+        const kmSlider = document.getElementById('km-slider');
+        const kmVal = document.getElementById('km-val');
+        const consumptionSlider = document.getElementById('consumption-slider');
+        const consumptionVal = document.getElementById('consumption-val');
+        const efficiencySlider = document.getElementById('efficiency-slider');
+        const efficiencyVal = document.getElementById('efficiency-val');
+        const priceSlider = document.getElementById('price-slider');
+        const priceVal = document.getElementById('price-val');
+        const awayToggle = document.getElementById('away-toggle');
+        const awayInfoText = document.getElementById('away-info-text');
+        const resetBtn = document.getElementById('reset-btn');
+
+        const modulesKwpBadge = document.getElementById('modules-kwp-badge');
+        const batteryBadge = document.getElementById('battery-badge');
+
+        const kpiAutarky = document.getElementById('kpi-autarky');
+        const autarkyBar = document.getElementById('autarky-bar');
+        const kpiSavings = document.getElementById('kpi-savings');
+        const kpiSavingsSub = document.getElementById('kpi-savings-sub');
+        const kpiSolarKm = document.getElementById('kpi-solar-km');
+        const kpiSolarKmSub = document.getElementById('kpi-solar-km-sub');
+        const kpiSolarYear = document.getElementById('kpi-solar-year');
+        const kpiKwpSub = document.getElementById('kpi-kwp-sub');
+        const kpiMissingYear = document.getElementById('kpi-missing-year');
+        const kpiRemainCostYear = document.getElementById('kpi-cost-remain-year');
+
+        const mobileKpiAutarky = document.getElementById('mobile-kpi-autarky');
+        const mobileKpiSavings = document.getElementById('mobile-kpi-savings');
+        const mobileKpiCost = document.getElementById('mobile-kpi-cost');
+
+        const tableBody = document.getElementById('monthly-table-body');
+        const tableFoot = document.getElementById('monthly-table-foot');
+        let balanceChart = null;
+
+        const formatNum = (num, decimals = 1) => num.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+
+        function updateBatteryButtonsState() {
+            const wrappers = document.querySelectorAll('.battery-wrapper');
+            const batteryButtons = document.querySelectorAll('#battery-btn-group button');
+            if (!state.isAwayTagsueber) {
+                state.batteryKwh = 5;
+                batteryButtons.forEach(b => {
+                    const val = parseInt(b.dataset.val, 10);
+                    if (val === 5) {
+                        b.classList.add('btn-option-active');
+                    } else {
+                        b.classList.remove('btn-option-active');
+                    }
+                });
+                wrappers.forEach(w => {
+                    w.classList.add('hidden');
+                });
+            } else {
+                wrappers.forEach(w => {
+                    w.classList.remove('hidden');
+                });
+            }
+        }
+
+        function calculateModel() {
+            const kWp = (state.modules * state.moduleWp) / 1000;
+            const efficiency = state.efficiencyPercent / 100;
+            const totalAnnualNeededKwh = (state.annualKm / 100) * state.consumption100km;
+            const totalDaysInYear = 365;
+
+            let totalSolarGross = 0, totalUsableSolarNet = 0, totalUsedSolar = 0, totalMissingEnergy = 0, remainCostYear = 0, totalSurplusEnergy = 0;
+
+            const monthlyResults = MONTH_DATA.map(month => {
+                const solarMonatGross = month.specificYield * kWp;
+                const solarTagGross = solarMonatGross / month.days;
+                const needed = (totalAnnualNeededKwh / totalDaysInYear) * month.days;
+                let usableSolarNetMonth = 0;
+
+                if (state.isAwayTagsueber) {
+                    const maxDailyNetBattery = state.batteryKwh * efficiency;
+                    for (let day = 0; day < month.days; day++) {
+                        usableSolarNetMonth += Math.min(solarTagGross * efficiency, maxDailyNetBattery);
+                    }
+                } else {
+                    usableSolarNetMonth = solarMonatGross * efficiency;
+                }
+
+                const usedSolar = Math.min(needed, usableSolarNetMonth);
+                const missing = Math.max(0, needed - usedSolar);
+                const surplus = Math.max(0, (solarMonatGross * efficiency) - usedSolar);
+                const autarkyRate = needed > 0 ? (usedSolar / needed) * 100 : 100;
+
+                totalSolarGross += solarMonatGross;
+                totalUsableSolarNet += usableSolarNetMonth;
+                totalUsedSolar += usedSolar;
+                totalMissingEnergy += missing;
+                totalSurplusEnergy += surplus;
+
+                
+
+                return { ...month, solarMonatGross, usableSolarNetMonth, needed, usedSolar, missing, surplus, autarkyRate, totalSurplusEnergy };
+            });
+
+            remainCostYear = totalMissingEnergy * state.gridPrice;
+            const totalAutarkyRate = totalAnnualNeededKwh > 0 ? Math.min(100, (totalUsedSolar / totalAnnualNeededKwh) * 100) : 100;
+            const solarCoveredKm = state.consumption100km > 0 ? (totalUsedSolar / state.consumption100km) * 100 : 0;
+            const annualSavings = (totalAnnualNeededKwh * state.gridPrice) - (totalMissingEnergy * state.gridPrice);
+
+            return { kWp, totalAnnualNeededKwh, totalSolarGross, totalUsableSolarNet, totalUsedSolar, totalMissingEnergy, remainCostYear, totalAutarkyRate, solarCoveredKm, annualSavings, monthlyResults, totalSurplusEnergy };
+        }
+
+        function updateDashboard() {
+            const calc = calculateModel();
+            modulesKwpBadge.textContent = `${formatNum(calc.kWp, 2)} kWp`;
+            batteryBadge.textContent = `${state.batteryKwh} kWh`;
+            kpiAutarky.textContent = `${formatNum(calc.totalAutarkyRate, 1)}%`;
+            autarkyBar.style.width = `${Math.min(100, calc.totalAutarkyRate)}%`;
+            kpiSavings.textContent = `${formatNum(calc.annualSavings, 0)} €`;
+            kpiSavingsSub.textContent = `bei ${formatNum(state.gridPrice, 2)} €/kWh`;
+            kpiSolarKm.textContent = formatNum(calc.solarCoveredKm, 0);
+            kpiSolarKmSub.textContent = `von ${formatNum(state.annualKm, 0)} km`;
+            kpiSolarYear.textContent = formatNum(calc.totalSolarGross, 0);
+            kpiKwpSub.textContent = `${formatNum(calc.kWp, 2)} kWp Anlagengröße`;
+            kpiMissingYear.textContent = formatNum(calc.totalMissingEnergy, 0);
+            kpiRemainCostYear.textContent = `Restkosten: ${formatNum(calc.remainCostYear, 0)} € bei ${formatNum(state.gridPrice, 2)} €/kWh`;
+
+            if (mobileKpiAutarky) mobileKpiAutarky.textContent = `${formatNum(calc.totalAutarkyRate, 1)}%`;
+            if (mobileKpiSavings) mobileKpiSavings.textContent = `${formatNum(calc.annualSavings, 0)} €`;
+            if (mobileKpiCost) mobileKpiCost.textContent = `${formatNum(calc.remainCostYear, 0)} €`;
+
+            renderTable(calc);
+            renderCharts(calc);
+        }
+
+        function renderTable(calc) {
+            tableBody.innerHTML = '';
+            calc.monthlyResults.forEach(r => {
+                tableBody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40 transition-colors">
+                        <td class="py-2.5 px-4 font-medium text-slate-200">${r.name}</td>
+                        <td class="py-2.5 px-2 text-center text-slate-400">${r.days}</td>
+                        <td class="py-2.5 px-3 text-right text-amber-400 font-semibold">${formatNum(r.solarMonatGross, 1)}</td>
+                        <td class="py-2.5 px-3 text-right text-emerald-400/90">${formatNum(r.usableSolarNetMonth, 1)}</td>
+                        <td class="py-2.5 px-3 text-right text-indigo-300">${formatNum(r.needed, 1)}</td>
+                        <td class="py-2.5 px-3 text-right text-emerald-400 font-bold">${formatNum(r.usedSolar, 1)}</td>
+                        <td class="py-2.5 px-3 text-right ${r.missing > 0 ? 'text-rose-400 font-semibold' : 'text-slate-500'}">${formatNum(r.missing, 1)}</td>
+                        <td class="py-2.5 px-3 text-right ${r.surplus > 0 ? 'text-amber-400' : 'text-slate-500'}">${formatNum(r.surplus, 1)}</td>
+                        <td class="py-2.5 px-3 text-right font-bold text-emerald-400">${formatNum(r.autarkyRate, 1)}%</td>
+                    </tr>`;
+            });
+            tableFoot.innerHTML = `
+                <tr>
+                    <td class="py-3 px-4 font-bold">Gesamt / Jahr</td>
+                    <td class="py-3 px-2 text-center text-slate-400">365</td>
+                    <td class="py-3 px-3 text-right text-amber-400 font-bold">${formatNum(calc.totalSolarGross, 0)} kWh</td>
+                    <td class="py-3 px-3 text-right text-emerald-400 font-bold">${formatNum(calc.totalUsableSolarNet, 0)} kWh</td>
+                    <td class="py-3 px-3 text-right text-indigo-300 font-bold">${formatNum(calc.totalAnnualNeededKwh, 0)} kWh</td>
+                    <td class="py-3 px-3 text-right text-emerald-400 font-extrabold">${formatNum(calc.totalUsedSolar, 0)} kWh</td>
+                    <td class="py-3 px-3 text-right text-rose-400 font-extrabold">${formatNum(calc.totalMissingEnergy, 0)} kWh</td>
+                    <td class="py-3 px-3 text-right text-amber-400 font-bold">${formatNum(calc.totalSurplusEnergy, 0)} kWh</td>
+                    <td class="py-3 px-3 text-right text-emerald-400 font-extrabold">${formatNum(calc.totalAutarkyRate, 1)}%</td>
+                </tr>`;
+        }
+
+        function renderCharts(calc) {
+            const labels = calc.monthlyResults.map(m => m.name.substring(0, 3));
+            const usedSolarData = calc.monthlyResults.map(m => Math.round(m.usedSolar));
+            const missingData = calc.monthlyResults.map(m => Math.round(m.missing));
+            const surplusData = calc.monthlyResults.map(m => Math.round(m.surplus));
+
+            if (!balanceChart) {
+                const ctx = document.getElementById('balanceChart').getContext('2d');
+                balanceChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            { label: 'Genutzte Solarenergie (kWh)', data: usedSolarData, backgroundColor: '#10b981', borderRadius: 4, stack: '0' },
+                            { label: 'Ladesäule (kWh)', data: missingData, backgroundColor: '#f43f5e', borderRadius: 4, stack: '0' },
+                            { label: 'Solarüberschuss (kWh)', data: surplusData, backgroundColor: '#f59e0b', borderRadius: 4, stack: '1' }
+                        ]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: { legend: { labels: { color: '#cbd5e1', font: { family: 'Inter', size: 11 }, usePointStyle: true } } },
+                        scales: {
+                            x: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
+                            y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } }
+                        }
+                    }
+                });
+            } else {
+                balanceChart.data.datasets[0].data = usedSolarData;
+                balanceChart.data.datasets[1].data = missingData;
+                balanceChart.data.datasets[2].data = surplusData;
+                balanceChart.update();
+            }
+        }
+
+        document.querySelectorAll('#modules-btn-group button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#modules-btn-group button').forEach(b => b.classList.remove('btn-option-active'));
+                btn.classList.add('btn-option-active');
+                state.modules = parseInt(btn.dataset.val, 10);
+                updateDashboard();
+            });
+        });
+
+        document.querySelectorAll('#battery-btn-group button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+                document.querySelectorAll('#battery-btn-group button').forEach(b => b.classList.remove('btn-option-active'));
+                btn.classList.add('btn-option-active');
+                state.batteryKwh = parseInt(btn.dataset.val, 10);
+                updateDashboard();
+            });
+        });
+
+        awayToggle.addEventListener('change', (e) => {
+            state.isAwayTagsueber = e.target.checked;
+            awayInfoText.textContent = state.isAwayTagsueber 
+                ? "Fahrzeug tagsüber weg: Speicherkapazität begrenzt die Tagesladung." 
+                : "Direktladung tagsüber aktiv: 5 kWh Pufferakku ist fest eingestellt.";
+            updateBatteryButtonsState();
+            updateDashboard();
+        });
+
+        resetBtn.addEventListener('click', () => {
+            state.modules = 6;
+            state.batteryKwh = 5;
+            state.isAwayTagsueber = false;
+            state.annualKm = 15000;
+            state.consumption100km = 25.0;
+            state.efficiencyPercent = 75;
+            state.gridPrice = 0.59;
+
+            kmSlider.value = state.annualKm;
+            kmVal.textContent = `${state.annualKm.toLocaleString('de-DE')} km`;
+
+            consumptionSlider.value = state.consumption100km;
+            consumptionVal.textContent = `${formatNum(state.consumption100km, 1)} kWh/100km`;
+
+            efficiencySlider.value = state.efficiencyPercent;
+            efficiencyVal.textContent = `${formatNum(state.efficiencyPercent, 1)} %`;
+
+            priceSlider.value = state.gridPrice;
+            priceVal.textContent = `${formatNum(state.gridPrice, 2)} €/kWh`;
+
+            awayToggle.checked = state.isAwayTagsueber;
+            awayInfoText.textContent = "Direktladung tagsüber aktiv: 5 kWh Pufferakku ist fest eingestellt.";
+
+            document.querySelectorAll('#modules-btn-group button').forEach(b => {
+                if (b.dataset.val === '6') b.classList.add('btn-option-active');
+                else b.classList.remove('btn-option-active');
+            });
+
+            updateBatteryButtonsState();
+            updateDashboard();
+        });
+
+        kmSlider.addEventListener('input', (e) => { state.annualKm = parseInt(e.target.value, 10); kmVal.textContent = `${state.annualKm.toLocaleString('de-DE')} km`; updateDashboard(); });
+        consumptionSlider.addEventListener('input', (e) => { state.consumption100km = parseFloat(e.target.value); consumptionVal.textContent = `${formatNum(state.consumption100km, 1)} kWh/100km`; updateDashboard(); });
+        efficiencySlider.addEventListener('input', (e) => { state.efficiencyPercent = parseInt(e.target.value, 10); efficiencyVal.textContent = `${state.efficiencyPercent} %`; updateDashboard(); });
+        priceSlider.addEventListener('input', (e) => { state.gridPrice = parseFloat(e.target.value); priceVal.textContent = `${formatNum(state.gridPrice, 2)} €/kWh`; updateDashboard(); });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            updateBatteryButtonsState();
+            updateDashboard();
+        });
+    </script>
+</body>
+</html>

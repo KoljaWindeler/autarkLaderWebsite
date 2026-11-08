@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Zuhause: Die private Energiewende – Projektdokumentation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="h-full flex flex-col min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- SUBTILER HEADER / NAVIGATION -->
+    <header class="border-b border-slate-800/80 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-gradient-to-tr from-amber-500/20 to-emerald-500/20 text-amber-400 rounded-xl border border-amber-500/30">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold text-slate-200 tracking-wide block">Die private Energiewende</span>
+                    <span class="text-[10px] text-slate-400 uppercase font-semibold">Mein Zuhause · Projektdokumentation</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="about_kolja.html" class="inline-flex items-center gap-2 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium px-3.5 py-2 rounded-xl transition border border-slate-700">
+                    <i data-lucide="arrow-left" class="w-4 h-4 text-amber-400"></i>
+                    <span class="hidden sm:inline">Zurück zu mir</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16">
+        
+        <!-- HERO SEKTION -->
+        <section class="relative bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/20 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden space-y-8">
+            <div class="absolute -right-24 -top-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-24 -bottom-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-4 max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="zap" class="w-3.5 h-3.5"></i> Eigeninitiative & Hands-on Execution
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                    Mein Zuhause: <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-emerald-400 to-teal-200">
+                        Die private Energiewende
+                    </span>
+                </h1>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed italic border-l-2 border-amber-500/50 pl-4 py-1">
+                    "Von der Theorie in die Praxis: Wie aus 42 kWp Solar, 86 kWh Speicher, Wärmepumpe, 2x EVs und einem selbstgeschriebenen EMS ein hocheffizientes Gesamtsystem wurde."
+                </p>
+            </div>
+
+            <!-- 5-METRIC QUICK BAR -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-2">
+                <div class="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800 space-y-1">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span class="text-[10px] uppercase font-bold tracking-wider">PV-Leistung</span>
+                        <i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-white block">42 kWp</span>
+                    <span class="text-[11px] text-amber-400">100 Panele (Eigenbau)</span>
+                </div>
+
+                <div class="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800 space-y-1">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span class="text-[10px] uppercase font-bold tracking-wider">Batterie-Speicher</span>
+                        <i data-lucide="battery-charging" class="w-4 h-4 text-emerald-400"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-emerald-400 block">86 kWh</span>
+                    <span class="text-[11px] text-slate-400">6x 14,4 kWh Blöcke</span>
+                </div>
+
+                <div class="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800 space-y-1">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span class="text-[10px] uppercase font-bold tracking-wider">Heizung</span>
+                        <i data-lucide="flame-kindling" class="w-4 h-4 text-blue-400"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-white block">Wärmepumpe</span>
+                    <span class="text-[11px] text-blue-400">Ciao Gasheizung</span>
+                </div>
+
+                <div class="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800 space-y-1">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span class="text-[10px] uppercase font-bold tracking-wider">Fuhrpark</span>
+                        <i data-lucide="car" class="w-4 h-4 text-purple-400"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-white block">2x EVs</span>
+                    <span class="text-[11px] text-purple-400">30.000 km / Jahr</span>
+                </div>
+
+                <div class="bg-slate-950/80 p-3.5 rounded-2xl border border-slate-800 space-y-1 col-span-2 sm:col-span-1">
+                    <div class="flex items-center justify-between text-slate-400">
+                        <span class="text-[10px] uppercase font-bold tracking-wider">Steuerung</span>
+                        <i data-lucide="code" class="w-4 h-4 text-emerald-400"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-emerald-400 block">Eigenes EMS</span>
+                    <span class="text-[11px] text-slate-400">Self-coded (Python/C++)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAPITEL 1: STATUS QUO (VOR DER ENERGIEWENDE) -->
+        <section class="space-y-6">
+            <div class="space-y-2 border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-md border border-rose-500/20">
+                    Kapitel 1
+                </span>
+                <h2 class="text-2xl font-extrabold text-white">VOR der Energiewende</h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Ausgangslage und bisherige operative Jahreskosten für Mobilität, Haushalt und Heizung.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Mobilität -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 shadow-xl">
+                    <div class="flex items-center gap-3 text-rose-400 border-b border-slate-800 pb-3">
+                        <div class="p-2 bg-rose-500/10 rounded-xl">
+                            <i data-lucide="car" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-sm">Mobilität (2x Benziner)</h3>
+                            <span class="text-[10px] text-slate-400">30.000 km / Jahr gesamt</span>
+                        </div>
+                    </div>
+                    <ul class="text-xs space-y-2 text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Verbrauch:</span>
+                            <span>9 Liter / 100 km</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Kraftstoffmenge:</span>
+                            <span>2.700 Liter Super</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Benzinpreis:</span>
+                            <span>2,10€ / Liter</span>
+                        </li>
+                    </ul>
+                    <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-slate-400">Kosten / Jahr:</span>
+                        <span class="text-base font-extrabold text-rose-400">5.670€</span>
+                    </div>
+                </div>
+
+                <!-- Haushaltsstrom -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 shadow-xl">
+                    <div class="flex items-center gap-3 text-amber-400 border-b border-slate-800 pb-3">
+                        <div class="p-2 bg-amber-500/10 rounded-xl">
+                            <i data-lucide="plug" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-sm">Haushaltsstrom</h3>
+                            <span class="text-[10px] text-slate-400">Klassischer Netzbezug</span>
+                        </div>
+                    </div>
+                    <ul class="text-xs space-y-2 text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Verbrauch:</span>
+                            <span>3.500 kWh / Jahr</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Strompreis:</span>
+                            <span>0,32€ / kWh</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Nutzung:</span>
+                            <span>Standard-Haushalt</span>
+                        </li>
+                    </ul>
+                    <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-slate-400">Kosten / Jahr:</span>
+                        <span class="text-base font-extrabold text-amber-400">1.120€</span>
+                    </div>
+                </div>
+
+                <!-- Gebäudeheizung -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 shadow-xl">
+                    <div class="flex items-center gap-3 text-orange-400 border-b border-slate-800 pb-3">
+                        <div class="p-2 bg-orange-500/10 rounded-xl">
+                            <i data-lucide="flame" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-sm">Wärme (Erdgas)</h3>
+                            <span class="text-[10px] text-slate-400">Klassische Gasanlage</span>
+                        </div>
+                    </div>
+                    <ul class="text-xs space-y-2 text-slate-300">
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Verbrauch:</span>
+                            <span>30.000 kWh / Jahr</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Gaspreis:</span>
+                            <span>0,11€ / kWh</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Nutzungsart:</span>
+                            <span>Heizung & Warmwasser</span>
+                        </li>
+                    </ul>
+                    <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-semibold text-slate-400">Kosten / Jahr:</span>
+                        <span class="text-base font-extrabold text-orange-400">3.300€</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATUS QUO SUMMARY & HINWEIS -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-7 bg-slate-900/90 border border-rose-500/30 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 bg-rose-500/10 text-rose-400 rounded-xl border border-rose-500/20 shrink-0">
+                            <i data-lucide="banknote" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-rose-400 tracking-wider block">Operative Gesamtkosten</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-white">10.090€ / Jahr</h3>
+                        </div>
+                    </div>
+                    <div class="text-right bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
+                        <span class="text-[11px] text-slate-400 block">Monatliche Belastung</span>
+                        <span class="text-sm font-bold text-rose-400">ca. 841€ / Monat</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-5 flex items-start gap-3">
+                    <i data-lucide="info" class="w-5 h-5 text-blue-400 shrink-0 mt-0.5"></i>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <strong class="text-white">Hinweis zur Investition:</strong> Die Anschaffung der zwei neuen Autos und der Heizung stand ohnehin turnusgemäß an. Dank der bereits vorhandenen Fußbodenheizung (FBH) war der Umbau auf die Wärmepumpe kostenneutral möglich.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAPITEL 2: NACH DER ENERGIEWENDE -->
+        <section class="space-y-6">
+            <div class="space-y-2 border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                    Kapitel 2
+                </span>
+                <h2 class="text-2xl font-extrabold text-white">NACH der Energiewende</h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Stromeinspeisung, optimierter Winterbezug nach § 14a EnWG und Entfall fossiler Fixkosten.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- EINNAHMEN -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20">
+                            <i data-lucide="arrow-down-left" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">A. Die Einnahmeseite (22 MWh Einspeisung)</h3>
+                            <span class="text-xs text-slate-400">Ertrag aus der Solarstromvermarktung</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                            <div class="flex justify-between items-center font-semibold text-slate-200">
+                                <span>Energiegemeinschaft (4 Häuser Direktverbindung)</span>
+                                <span class="text-emerald-400 font-bold">+1.980€</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">
+                                11.000 kWh direkt an 4 Nachbarhäuser geliefert (Direktpreis: 0,18€/kWh).
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                            <div class="flex justify-between items-center font-semibold text-slate-200">
+                                <span>Öffentliche Netzeinspeisung (Restüberschuss)</span>
+                                <span class="text-emerald-400 font-bold">+1.100€</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">
+                                11.000 kWh Restüberschuss ins öffentliche Netz eingespeist.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-300">GESAMTEINNAHMEN:</span>
+                        <span class="text-lg font-extrabold text-emerald-400">+3.080€ / Jahr</span>
+                    </div>
+                </div>
+
+                <!-- AUSGABEN -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+                    <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                        <div class="p-2 bg-blue-500/10 text-blue-400 rounded-xl border border-blue-500/20">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">B. Die Ausgabenseite (Winterbezug & Unterwegs)</h3>
+                            <span class="text-xs text-slate-400">Tarifoptimierung nach § 14a EnWG</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                            <div class="flex justify-between items-center font-semibold text-slate-200">
+                                <span>Netzbezug Winter (14.000 kWh via § 14a EnWG)</span>
+                                <span class="text-rose-400 font-bold">-1.960€</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">
+                                Octopus Go Basispreis (0,18€) minus Netzentgelt-Reduktion nachts (0,04€) = 0,14€/kWh eff. § 14a Modul 1 Pauschale deckt Grundgebühr komplett ab.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                            <div class="flex justify-between items-center font-semibold text-slate-200">
+                                <span>Langstrecken-Laden E-Autos (550 kWh)</span>
+                                <span class="text-rose-400 font-bold">-275€</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">
+                                2.500 km Unterwegs-Laden an Schnellladesäulen (à 0,50€/kWh).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-300">GESAMTAUSGABEN:</span>
+                        <span class="text-lg font-extrabold text-rose-400">-2.235€ / Jahr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETTO-ERGEBNIS & FIXKOSTEN-BONUS -->
+            <div class="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">C. Zusätzliche Ersparnis (Gasanschluss & Schornsteinfeger)</h3>
+                            <p class="text-xs text-slate-400">Entfallene Grundgebühren und Wartungskosten</p>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-500/10 px-4 py-2 rounded-xl border border-emerald-500/20 text-emerald-400 font-bold text-sm">
+                        +150€ / Jahr Ersparnis
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-xs text-slate-300">
+                        <strong>Operative Netto-Energiebilanz:</strong> +3.080€ (Einnahmen) - 2.235€ (Ausgaben) + 150€ (Gas-Ersparnis)
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] text-slate-400 uppercase font-bold block">Operativer Netto-Ertrag</span>
+                        <span class="text-2xl font-black text-emerald-400">+995€ / Jahr</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAPITEL 3: DER DIREKTE VERGLEICH -->
+        <section class="space-y-6">
+            <div class="space-y-2 border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md border border-blue-500/20">
+                    Kapitel 3
+                </span>
+                <h2 class="text-2xl font-extrabold text-white">Der direkte Wirtschaftlichkeitsvergleich</h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Gegenüberstellung von altem und neuem operativen Jahresergebnis.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    
+                    <!-- VORHER -->
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-rose-500/30 text-center space-y-2">
+                        <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">VORHER</span>
+                        <div class="text-3xl font-black text-rose-400">-10.090€</div>
+                        <span class="text-[11px] text-slate-400 block">Reine Energiekosten pro Jahr</span>
+                    </div>
+
+                    <!-- DELTA / ARROW -->
+                    <div class="text-center space-y-2">
+                        <div class="inline-flex p-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+                            <i data-lucide="trending-up" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-extrabold text-white block uppercase tracking-wider">Ersparnis + Ertrag</span>
+                        <span class="text-xs text-slate-400">Finanzieller Gesamtvorteil</span>
+                    </div>
+
+                    <!-- NACHHER -->
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-emerald-500/30 text-center space-y-2">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">NACHHER</span>
+                        <div class="text-3xl font-black text-emerald-400">+995€</div>
+                        <span class="text-[11px] text-slate-400 block">Operativer Jahresüberschuss</span>
+                    </div>
+
+                </div>
+
+                <div class="p-6 bg-gradient-to-r from-blue-950/40 via-slate-950 to-slate-950 rounded-2xl border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Jährlicher finanzieller Gesamtvorteil</h3>
+                        <p class="text-xs text-slate-300">Direkte Entlastung des Haushaltsbudgets jedes Jahr</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+                            +11.085€ / Jahr
+                        </span>
+                        <span class="text-xs text-emerald-400 font-semibold block">≈ 923,75€ netto pro Monat</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAPITEL 4: INVESTITION (CAPEX) & AMORTISATION -->
+        <section class="space-y-6">
+            <div class="space-y-2 border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">
+                    Kapitel 4
+                </span>
+                <h2 class="text-2xl font-extrabold text-white">Investition (CAPEX) & Amortisation</h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Effektive Materialkosten durch konsequenten Eigenbau und gezieltes Komponenten-Sourcing.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- CAPEX TABELLE -->
+                <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                    <h3 class="font-bold text-white text-base flex items-center gap-2">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 text-amber-400"></i>
+                        Aufschlüsselung der Investitionskosten (CAPEX)
+                    </h3>
+
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-white block">PV-Module (42 kWp)</strong>
+                                <span class="text-slate-400 text-[11px]">100 Panele à 65€</span>
+                            </div>
+                            <span class="font-bold text-white">6.500€</span>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-white block">Untergestelle & Montagematerial</strong>
+                                <span class="text-slate-400 text-[11px]">Dach- & Schieneninfrastruktur</span>
+                            </div>
+                            <span class="font-bold text-white">2.500€</span>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-emerald-400 block">Batterie-Speicher (86,4 kWh Kapazität)</strong>
+                                <span class="text-slate-400 text-[11px]">6 Blöcke à 14,4 kWh (à 1.500€)</span>
+                            </div>
+                            <span class="font-bold text-emerald-400">9.000€</span>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-white block">Batteriewechselrichter (Victron)</strong>
+                                <span class="text-slate-400 text-[11px]">6x Victron MultiPlus-II 5000 (voll ersatzstromfähig, à 600€)</span>
+                            </div>
+                            <span class="font-bold text-white">3.600€</span>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-white block">PV-Wechselrichter</strong>
+                                <span class="text-slate-400 text-[11px]">3 Stück à 800€</span>
+                            </div>
+                            <span class="font-bold text-white">2.400€</span>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-white block">Installationsmaterial & Verkabelung</strong>
+                                <span class="text-slate-400 text-[11px]">Kabel, Trassen, Sicherungen, Kleinmaterial</span>
+                            </div>
+                            <span class="font-bold text-white">2.000€</span>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-950 rounded-xl border border-slate-800">
+                            <div>
+                                <strong class="text-white block">Elektriker & offizielle Abnahme</strong>
+                                <span class="text-slate-400 text-[11px]">Fachgerechte Prüfung & Netzanschluss</span>
+                            </div>
+                            <span class="font-bold text-white">2.000€</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-300">GESAMT-INVESTITION (CAPEX):</span>
+                        <span class="text-xl font-black text-amber-400">28.000€</span>
+                    </div>
+                </div>
+
+                <!-- AMORTISATION PANEL -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-amber-950/30 border border-amber-500/30 rounded-2xl p-6 shadow-xl space-y-6">
+                    <div class="border-b border-slate-800 pb-4 space-y-1">
+                        <span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">Payback Period</span>
+                        <h3 class="text-xl font-extrabold text-white">Amortisation in Rekordzeit</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                            <span class="text-[11px] text-slate-400 block">Amortisationsrechnung:</span>
+                            <div class="text-center font-mono text-xs sm:text-sm text-slate-200 bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                                28.000€ CAPEX / 11.085€ Jahresvorteil
+                            </div>
+                            <div class="text-center pt-2">
+                                <span class="text-4xl font-black text-amber-400">≈ 2,5 Jahre</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            <strong class="text-white">Fazit:</strong> Durch den konsequenten Eigenleistungsanteil und den effizienten 86-kWh-Speicher amortisiert sich die gesamte Anlage von <strong>28.000€</strong> nach <strong>nur rund 2,5 Jahren</strong>. Danach arbeitet das System dauerhaft in der Gewinnzone.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEKTION: VISUELLER BEWEIS / FOTO GALERIE GRID -->
+        <section class="space-y-6">
+            <div class="space-y-2 border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md border border-teal-500/20">
+                    Fotodokumentation
+                </span>
+                <h2 class="text-2xl font-extrabold text-white">Echte Hardware & Hands-on Einsatz</h2>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Einblicke in die physische Umsetzung: Vom Steildach über die Wechselrichterwand bis zum Batterieraum.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Foto 1: Roof Safety -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col group">
+                    <div class="h-64 bg-slate-950 overflow-hidden relative">
+                        <img src="img/roof_safety.jpg" alt="Voller Einsatz auf dem Dach" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/94a3b8?text=Steildach+Sicherung';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] bg-slate-900/80 px-2 py-0.5 rounded text-amber-400 font-mono">Dachmontage</span>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-2">
+                        <h3 class="font-bold text-white text-sm">Voller Einsatz – mit Sicherheit auf dem Dach!</h3>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Eigenhändige Montage der Solar-Dachhaken und Schienen auf dem Steildach mit Absturzsicherung.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Foto 2: Roof Setup -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col group">
+                    <div class="h-64 bg-slate-950 overflow-hidden relative">
+                        <img src="img/roof_setup.jpg" alt="PV Setup auf dem Dach" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0f172a/94a3b8?text=42+kWp+PV+Setup';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] bg-slate-900/80 px-2 py-0.5 rounded text-amber-400 font-mono">42 kWp Solar</span>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-2">
+                        <h3 class="font-bold text-white text-sm">Alles in Eigenregie</h3>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Optimale Belegung der vorhandenen Dach- und Flachdachflächen mit 100 PV-Panelen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Foto 3: Konzentration -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col group">
+                    <div class="h-64 bg-slate-950 overflow-hidden relative">
+                        <img src="img/kolja_konzentration.jpg" alt="Volle Konzentration" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/94a3b8?text=EMS+Verdrahtung';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] bg-slate-900/80 px-2 py-0.5 rounded text-emerald-400 font-mono">EMS & Verdrahtung</span>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-2">
+                        <h3 class="font-bold text-white text-sm">Volle Konzentration :)</h3>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Vor Ort im Batterieraum bei der feinen Verdrahtung, Sensorik-Anbindung und Konfiguration des eigenen EMS.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Foto 4: Battery Room -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col group">
+                    <div class="h-64 bg-slate-950 overflow-hidden relative">
+                        <img src="img/battery.jpg" alt="Das Kraftwerk im Keller" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/94a3b8?text=Victron+Batterieraum';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] bg-slate-900/80 px-2 py-0.5 rounded text-blue-400 font-mono">86 kWh & 6x Victron MPII-5000</span>
+                    </div>
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-2">
+                        <h3 class="font-bold text-white text-sm">Das Kraftwerk im Keller</h3>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            6x Victron MultiPlus-II 5000 Wechselrichter an der Wand und das 86,4 kWh Akku-Rack sauber verkabelt und ersatzstromfähig.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAPITEL 5: TOP-3 RISIKEN & TOP-3 WINS -->
+        <section class="space-y-6">
+
+
+           <!-- 5. KAPITEL: RISIKEN & WINS DER PRIVATEN ENERGIEWENDE -->
+<div class="space-y-8">
+    <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl font-bold text-white">Risiken & Wins der Energiewende</h2>
+        <p class="text-xs text-slate-400">Pragmatischer Blick auf Hürden, Mathematik und die echten Erfolge des Eigenbaus.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- RISIKEN (⚠️) -->
+        <div class="bg-slate-900/80 border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="p-2.5 bg-amber-500/10 text-amber-400 rounded-xl border border-amber-500/20">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Top 3 Risiken</h3>
+                    <p class="text-[11px] text-slate-400">Und wie sie realistisch bewertet werden</p>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                
+                <!-- Risiko 1: Arbeit & Muskelkraft (jetzt an Pos. 1) -->
+                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">1. Frage nach Zeit & Kraft (Execution)</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">Hands-on</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Ein zentrales Risiko war, ob man neben Berufsalltag und Familie die Zeit und physische Kraft für die massive Umsetzung (100 PV-Module, Akku-Blöcke, Verkabelung) findet.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800/60 text-[11px] text-slate-400 leading-relaxed">
+                        <strong class="text-emerald-400">Lösung:</strong> Mit hoher intrinsischer Motivation lässt sich enorm viel schaffen – und für die schwersten Bauphasen gibt es zum Glück kräftige Freunde als Supporter!
+                    </div>
+                </div>
+
+                <!-- Risiko 2: Investitionshürde & Mathematik (NEU) -->
+                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">2. Hohe Initialinvestition (CAPEX)</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/20">Wirtschaftlichkeit</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        28.000€ auf einen Schlag in Material und Komponenten zu stecken, wirkt im ersten Moment als relevantes finanzielles Risiko.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800/60 text-[11px] text-slate-400 leading-relaxed">
+                        <strong class="text-emerald-400">Rechnerischer Fakt:</strong> Die Mathematik lügt nicht: Bei 11.085€ jährlicher Einsparung amortisiert sich die Investition nach knapp 2,5 Jahren. Das Risiko löst sich betriebswirtschaftlich extrem schnell auf.
+                    </div>
+                </div>
+
+                <!-- Risiko 3: Strom vs. Fossile Brennstoffe (NEU) -->
+                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">3. Preisverschiebung Strom vs. Fossil</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">Marktdynamik</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Das Risiko, dass Netzstrom im Vergleich zu Erdgas oder Benzin wieder drastisch teurer wird und die Wärmepumpen- & EV-Rechnung belasten könnte.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800/60 text-[11px] text-slate-400 leading-relaxed">
+                        <strong class="text-emerald-400">Realität:</strong> Durch den 86-kWh-Speicher wird fast ausschließlich zu spottbilligen Nachtstunden (§ 14a EnWG) geladen – der Tages-Strompreis spielt kaum noch eine Rolle.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- WINS (🏆) -->
+        <div class="bg-slate-900/80 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20">
+                    <i data-lucide="trophy" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Top 3 Wins</h3>
+                    <p class="text-[11px] text-slate-400">Der nachhaltige Mehrwert des Projekts</p>
+                </div>
+            </div>
+
+            <div class="space-y-5">
+                
+                <!-- Win 1: Extremer Wissensgewinn -->
+                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">1. Extremer Wissensgewinn</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Deep Tech</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Durch die eigenhändige Konzeption, Verkabelung und Programmierung kenne ich heute <strong>jeden Kabelbaum, jeden Stecker und jede Codezeile im absoluten Detail</strong>.
+                    </p>
+                </div>
+
+                <!-- Win 2: Finanzielle Entlastung -->
+                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">2. Finanzielle Entlastung</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Cashflow</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Über 11.000€ jährliche Einsparung verwandeln die private Energiewende in einen betriebswirtschaftlichen No-Brainer mit unter 3 Jahren ROI.
+                    </p>
+                </div>
+
+                <!-- Win 3: Perfekte Sektorenkopplung -->
+                <div class="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">3. Sektorenkopplung in Perfektion</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Autarkie</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Wärme, E-Mobilität und Hausstrom greifen über den 86-kWh-Speicher nahtlos ineinander – maximale Effizienz rund um die Uhr.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+        </section>
+
+        <!-- HIGHLIGHT: DER PRAXIS-BEWEIS NACH 18 MONATEN -->
+        <section class="bg-gradient-to-br from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/40 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="p-4 bg-emerald-500/10 text-emerald-400 rounded-2xl border border-emerald-500/30 shrink-0">
+                    <i data-lucide="shield-check" class="w-10 h-10"></i>
+                </div>
+                <div class="space-y-2 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-[10px] uppercase tracking-wider border border-emerald-500/30">
+                        18 Monate Dauerbetrieb ohne Eingriff
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white">Der System-Beweis im Alltag</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        Das gesamte System ist seit ca. <strong>18 Monaten voll ausgebaut & operativ im Einsatz </strong>. Bis heute gab es nicht einen Fehler und ein Eingriff war auch nie nötig. 
+                        Das Beste daran? Es ist nicht nur technisch eine absolute Punktlandung, sondern es erfüllt mich mit tiefem Stolz und purer Begeisterung, jeden Tag auf die Live-Zahlen zu schauen. 
+                        Zu sehen, wie das selbstgebaute System im Hintergrund leise die Energie für Haus, Wärme und Autos regelt – und dabei auch noch das Haushaltsbudget entlastet –, ist ein unglaublich befriedigendes Gefühl. Genau diese Begeisterung teile ich seither auch super gerne mit jedem, der es wissen will!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-900 py-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="hover:text-slate-300 transition flex items-center gap-1">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> autarkLader Projektsite
+                </a>
+                <span>&bull;</span>
+                <a href="impressum.html" class="hover:text-slate-300 transition">Impressum</a>
+            </div>
+            <p>Die private Energiewende &bull; Entwickelt mit Leidenschaft für echte Autarkie & Performance.</p>
+        </div>
+    </footer>
+
+    <!-- INITIALIZE LUCIDE ICONS -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
